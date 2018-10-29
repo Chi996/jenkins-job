@@ -11,7 +11,11 @@ pipeline {
                 echo 'Checking out the main repository'
 				checkout([$class: 'GitSCM', 
 						  branches: [[name: '*/master']],
-					 userRemoteConfigs: [[url: 'https://github.com/jpms-project/jenkins-test-project.git']]])
+					 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project2.git']]])
+					 
+				checkout([$class: 'GitSCM', 
+						  branches: [[name: '*/master']],
+					 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git']]])
             }
         }
         stage('Finished') {
