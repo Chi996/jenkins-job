@@ -21,9 +21,9 @@ pipeline {
 				echo "PROMOTE_FROM_ENVIRONMENT: ${params.PROMOTE_FROM_ENVIRONMENT}"
 				echo "PROMOTE_FROM_VERSION: ${params.PROMOTE_FROM_VERSION}"
 				
-				echo "CEHCKOUT_0_GIT_COMMIT: ${params.CEHCKOUT_0_GIT_COMMIT}"
-				echo "CEHCKOUT_1_GIT_COMMIT: ${params.CEHCKOUT_1_GIT_COMMIT}"
-				echo "CEHCKOUT_2_GIT_COMMIT: ${params.CEHCKOUT_2_GIT_COMMIT}"
+				echo "CHECKOUT_0_GIT_COMMIT: ${params.CHECKOUT_0_GIT_COMMIT}"
+				echo "CHECKOUT_1_GIT_COMMIT: ${params.CHECKOUT_1_GIT_COMMIT}"
+				echo "CHECKOUT_2_GIT_COMMIT: ${params.CHECKOUT_2_GIT_COMMIT}"
             }
         }
         stage('Finished') {
