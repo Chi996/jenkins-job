@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build Project2') {
+        stage('Checkout Project2') {
             steps {
                 script {
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
@@ -15,9 +15,12 @@ pipeline {
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project2.git']]])
                     }
                 }
-
-                ls -al
             }
+        }
+        stage('Build Project2') {
+             steps {
+                 ls -al
+             }
         }
         stage('Build Project3') {
             steps {
@@ -32,9 +35,12 @@ pipeline {
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git']]])
                     }
                 }
-
-                ls -al
             }
+        }
+        stage('Build Project3') {
+             steps {
+                 ls -al
+             }
         }
     }
 }
