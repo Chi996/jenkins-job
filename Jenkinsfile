@@ -1,34 +1,39 @@
 pipeline {
     agent any
 
-	environment {
-		ENVIRONMENT = "PROD"
-	}
-	
     stages {
-        stage('Checkout') {
+        stage('Build Project2') {
             steps {
-                echo 'Checking out the main repository'
-				checkout([$class: 'GitSCM', 
-						  branches: [[name: '*/master']],
-					 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project2.git']]])
-					 
-				checkout([$class: 'GitSCM', 
-						  branches: [[name: '*/master']],
-					 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git']]])
-					 
-				echo "ENVIRONMENT: ${params.ENVIRONMENT}"
-				echo "PROMOTE_FROM_ENVIRONMENT: ${params.PROMOTE_FROM_ENVIRONMENT}"
-				echo "PROMOTE_FROM_VERSION: ${params.PROMOTE_FROM_VERSION}"
-				
-				echo "CHECKOUT_0_GIT_COMMIT: ${params.CHECKOUT_0_GIT_COMMIT}"
-				echo "CHECKOUT_1_GIT_COMMIT: ${params.CHECKOUT_1_GIT_COMMIT}"
-				echo "CHECKOUT_2_GIT_COMMIT: ${params.CHECKOUT_2_GIT_COMMIT}"
+                script {
+                    if (params.PROMOTE_FROM_ENVIRONMENT != null) {
+                        checkout([$class: 'GitSCM',
+                        		branches: [[name: params.CHECKOUT_1_GIT_COMMIT]],
+                        		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project2.git']]])
+                    }else{
+                        checkout([$class: 'GitSCM',
+                                 branches: [[name: params.ENVIRONMENT]],
+                                 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project2.git']]])
+                    }
+                }
+
+                ls -al
             }
         }
-        stage('Finished') {
+        stage('Build Project3') {
             steps {
-                echo 'finished'
+                script {
+                    if (params.PROMOTE_FROM_ENVIRONMENT != null) {
+                        checkout([$class: 'GitSCM',
+                                branches: [[name: params.CHECKOUT_1_GIT_COMMIT]],
+                                userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git']]])
+                    }else{
+                        checkout([$class: 'GitSCM',
+                                 branches: [[name: params.ENVIRONMENT]],
+                                 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git']]])
+                    }
+                }
+
+                ls -al
             }
         }
     }
