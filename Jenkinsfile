@@ -42,5 +42,16 @@ pipeline {
                 sh 'ls -al'
              }
         }
+        stage('Print params'){
+            steps {
+                echo "ENVIRONMENT: ${params.ENVIRONMENT}"
+                echo "PROMOTE_FROM_ENVIRONMENT: ${params.PROMOTE_FROM_ENVIRONMENT}"
+                echo "PROMOTE_FROM_VERSION: ${params.PROMOTE_FROM_VERSION}"
+
+                echo "ROOT_GIT_COMMIT: ${params.ROOT_GIT_COMMIT}"
+                echo "PROJECT2_GIT_COMMIT: ${params.PROJECT2_GIT_COMMIT}"
+                echo "PROJECT3_GIT_COMMIT: ${params.PROJECT3_GIT_COMMIT}"
+            }
+        }
     }
 }
