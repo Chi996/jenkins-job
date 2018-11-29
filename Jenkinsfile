@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build Project2') {
              steps {
-                 ls -al
+                 sh 'ls -al'
              }
         }
         stage('Checkout Project3') {
@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Build Project3') {
              steps {
-                 ls -al
+                sh 'ls -al'
              }
         }
     }
