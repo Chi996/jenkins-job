@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Project2') {
+        stage('Checkout Project2.') {
             steps {
                 script {
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
