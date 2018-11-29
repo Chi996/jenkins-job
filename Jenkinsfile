@@ -22,7 +22,7 @@ pipeline {
                  ls -al
              }
         }
-        stage('Build Project3') {
+        stage('Checkout Project3') {
             steps {
                 script {
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
