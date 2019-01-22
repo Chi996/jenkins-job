@@ -5,10 +5,6 @@ pipeline {
         stage('Checkout Project2.') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
-                                        		branches: [[name: params.ENVIRONMENT]],
-                                        		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-job.git']]])
-
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
                         		branches: [[name: params.PROJECT2_GIT_COMMIT]],
