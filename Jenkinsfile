@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'jenkins-agent'}
+    agent any
 
     stages {
         stage('Checkout Project2.') {
