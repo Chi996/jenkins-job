@@ -7,7 +7,7 @@ pipeline {
                 script {
                     checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
                                             		branches: [[name: '*/master']],
-                                            		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-job.git', name:'job2']]])
+                                            		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project.git', name:'job2']]])
 
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
