@@ -1,14 +1,10 @@
 pipeline {
-    agent {label 'jenkins-agent'}
+    agent any
 
     stages {
         stage('Checkout Project2.') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
-                                                            		branches: [[name: 'UAT']],
-                                                            		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-job.git', name:'job2']]])
-
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
                         		branches: [[name: params.PROJECT2_GIT_COMMIT]],
