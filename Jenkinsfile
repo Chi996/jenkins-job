@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build Project2') {
              steps {
-                 sh 'ls -al'
+                 bat 'ls -al'
              }
         }
         stage('Checkout Project3') {
@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Build Project3') {
              steps {
-                sh 'ls -al'
+                bat 'ls -al'
              }
         }
         stage('Print params'){
