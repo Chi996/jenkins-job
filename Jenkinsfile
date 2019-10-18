@@ -8,7 +8,7 @@ pipeline {
                     if (params.PROMOTE_FROM_ENVIRONMENT != null) {
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
                         		branches: [[name: params.PROJECT2_GIT_COMMIT]],
-                        		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project.git', name:'project']]])
+                        		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project.git', name:'jenkins-test-project']]])
                     }else{
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
                                  branches: [[name: params.ENVIRONMENT]],
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build Project2') {
              steps {
-                 bat 'dir'
+                 sh 'ls'
              }
         }
         stage('Checkout Project3') {
@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Build Project3') {
              steps {
-                bat 'dir'
+                 sh 'ls'
              }
         }
         stage('Print params'){
