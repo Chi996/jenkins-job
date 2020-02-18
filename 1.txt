@@ -1,3 +1,1 @@
-666
-
-git remote add origin git@remote-scm.com:Chi996/jenkins-project-config.git
+888
