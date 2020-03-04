@@ -17,11 +17,6 @@ pipeline {
                 }
             }
         }
-        stage('Build Project2') {
-             steps {
-                 sh 'ls'
-             }
-        }
 
         stage('Print params'){
             steps {
