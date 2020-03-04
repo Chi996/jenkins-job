@@ -22,28 +22,7 @@ pipeline {
                  sh 'ls'
              }
         }
-        stage('Checkout Project3') {
-            steps {
-                script {
-                    if (params.PROMOTE_FROM_ENVIRONMENT != null) {
-                        checkout([$class: 'GitSCM',
-                                doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: true, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'project3']], submoduleCfg: [],
-                                branches: [[name: params.PROJECT3_GIT_COMMIT]],
-                                userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git', name:'project3']]])
-                    }else{
-                        checkout([$class: 'GitSCM',
-                                 doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: true, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'project3']], submoduleCfg: [],
-                                 branches: [[name: params.ENVIRONMENT]],
-                                 userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git', name:'project3']]])
-                    }
-                }
-            }
-        }
-        stage('Build Project3') {
-             steps {
-                 sh 'ls'
-             }
-        }
+
         stage('Print params'){
             steps {
                 echo "ENVIRONMENT: ${params.ENVIRONMENT}"
