@@ -11,7 +11,7 @@ pipeline {
                         		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project.git', name:'jenkins-test-project']]])
                     }else{
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
-                                 branches: [[name: ]],
+                                 branches: [[name: params.ENVIRONMENT]],
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/k8s-scripts.git', name:'k8s-script']]])
                     }
                 }
