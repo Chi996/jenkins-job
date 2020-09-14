@@ -11,7 +11,7 @@ pipeline {
                         		userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project.git', name:'jenkins-test-project']]])
                     }else{
                         checkout([$class: 'GitSCM', doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [],
-                                 branches: [[name: params.ENVIRONMENT]],
+                                 branches: [[name: ]],
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/k8s-scripts.git', name:'k8s-script']]])
                     }
                 }
@@ -29,7 +29,7 @@ pipeline {
                     }else{
                         checkout([$class: 'GitSCM',
                                  doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: true, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'project3']], submoduleCfg: [],
-                                 branches: [[name: params.ENVIRONMENT]],
+                                 branches: [[name: "${GIT_BRANCH}"]],
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git', name:'project3']]])
                     }
                 }
