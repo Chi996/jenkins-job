@@ -29,7 +29,7 @@ pipeline {
                     }else{
                         checkout([$class: 'GitSCM',
                                  doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: true, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'project3']], submoduleCfg: [],
-                                 branches: [[name: params.GIT_BRANCH]],
+                                 branches: [[name: '$GIT_BRANCH']],
                                  userRemoteConfigs: [[url: 'https://github.com/Chi996/jenkins-test-project3.git', name:'project3']]])
                     }
                 }
