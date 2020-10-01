@@ -39,6 +39,7 @@ pipeline {
         stage('Print params'){
             steps {
                 echo "ENVIRONMENT: ${params.ENVIRONMENT}"
+                echo "PARAM_GIT_BRANCH: ${PARAM_GIT_BRANCH}"
                 echo "PROMOTE_FROM_ENVIRONMENT: ${params.PROMOTE_FROM_ENVIRONMENT}"
                 echo "PROMOTE_FROM_VERSION: ${params.PROMOTE_FROM_VERSION}"
 
