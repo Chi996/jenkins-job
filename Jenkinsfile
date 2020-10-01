@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo "ENVIRONMENT: ${params.ENVIRONMENT}"
                 echo "PARAM_GIT_BRANCH: ${params.PARAM_GIT_BRANCH}"
-                echo "PARAM_GIT_BRANCH: $PARAM_GIT_BRANCH"
+                bash echo "PARAM_GIT_BRANCH: $PARAM_GIT_BRANCH"
                 echo "PROMOTE_FROM_ENVIRONMENT: ${params.PROMOTE_FROM_ENVIRONMENT}"
                 echo "PROMOTE_FROM_VERSION: ${params.PROMOTE_FROM_VERSION}"
 
